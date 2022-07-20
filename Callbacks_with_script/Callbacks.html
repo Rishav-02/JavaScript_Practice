@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Callbacks</h2>
+<h4>myDisplayer is used as a callback.
+    myDisplayer is passed to getFile() as an argument</h4>
+<b>If you create a function to load an external resource (like a script or a file), you cannot use the content before it is fully loaded.
+
+</b>    
+
+<p id="cars"></p>
+
+<script>
+function myDisplayer(some) {
+  document.getElementById("cars").innerHTML = some;
+}
+
+function getFile(myCallback) {
+  let req = new XMLHttpRequest();
+  req.open('GET', "mycar.html");
+  req.onload = function() {
+    if (req.status == 200) {  //200 words
+      myCallback(this.responseText);
+    } else {
+      myCallback("Error: " + req.status);
+    }
+  }
+  req.send();
+}
+
+getFile(myDisplayer); //function call
+</script>
+
+</body>
+</html>
