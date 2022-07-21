@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOM</title>
+  </head>
+  <body>
+    <h1>Browser Object Model in JS</h1>
+    <img src="bom.svg" alt="BOM" />
+    <h2>
+      document: Contains all HTML elements of the current page. <br />
+      frames: Any frames embedded within the current page. <br />
+      history: Contains a stack of sites visited in the current session. <br />
+      location: Stores URL of the current page. <br />
+      navigator: Stores information about the browser being used, and the OS
+      used by the browser. <br />
+      screen: Display properties of the user's computer or device.
+    </h2>
+
+    <h2>Window object:-</h2>
+    <h4>
+      closed: Returns True if window is closed. <br />
+      defaultStatus: Set the text on the status bar.<br />
+      innerHeight: The inner height of the page (not including toolbar, other
+      tabs, etc).<br />
+      innerWidth: The inner width (excludes toolbar, other tabs, etc.).<br />
+      outerHeight: The outer height of a window (including toolbar, other tabs,
+      etc).<br />
+      outerWidth: The outer width of a window.<br />
+      location: Window's current URL.<br />
+      name: Name of the window.<br />
+      parent: Used with frames to refer to the window that created a particular
+      window or is one level up from the frame.<br />
+      parent: Reference to the window that the current window came from.<br />
+      pageXOffset: The number of pixels user has scrolled horizontally from the
+      upper-left corner of document.<br />
+      pageYOffset: The number of pixels the user has been scrolled
+      vertically.<br />
+      screenX: Horizontal coordinate of the window relative to the screen.<br />
+      screenY: Vertical coordinate of the window relative to the screen.<br />
+      top: The top-most parent window.
+    </h4>
+
+    <h2>Window Methods:-</h2>
+    <h4>
+      alert(): Opens a popup window. User must click OK to close. <br />
+      prompt(): Prompts user for an input <br />
+      open(): Opens new browser window with specified URL. <br />
+      close(): Closes window. <br />
+      print(): Opens print dialog.
+    </h4>
+
+    <h2>Moving a window object:-</h2>
+    <h4>
+      moveBy(): Move the window relative. <br />
+      moveTo(): Moves the window to a specific location. <br />
+      resizeBy(): Change size of window relative to current size. <br />
+      resizeTo(): Change size of window to specified size.
+    </h4>
+
+    <h2>Screen:-</h2>
+    <h4>
+      The window.screen object obtains information about the user's screen.
+      <br />
+      <br />
+
+      availHeight, availWidth: Width and height of the available screen
+      (excluding taskbars). <br />
+      height, width: Width and height of the available screen (with taskbars).
+      <br />
+      colorDepth: Number representing the bit depth of the color palette on
+      user's screen.
+    </h4>
+
+    <h2>Navigator:-</h2>
+    <h4>
+      The window.navigator object is used to query a number of elements about
+      the visitor's browser and environment. <br />
+      <br />
+
+      language: Determine language of browser. <br />
+      appName:Check name of browser. <br />
+      geolocation: Returns geolocation object used to locate user's position.
+      <br />
+      onLine: Determines if user is online. <br />
+      platform: Which platform user is using (OS X, Windows, Linux). <br />
+      cookieEnabled: Determines whether cookies are enabled. <br />
+      javaEnabled(): Check if user's Java is enabled.
+    </h4>
+
+    <h2>Location:-</h2>
+    <h4>
+      The window.location object provides information about the current URL.
+      <br />
+      <br />
+
+      hash: Returns anchor part of a URL. <br />
+      host: Returns hostname and port number of URL. <br />
+      pathname, port: Returns path or nort number of URL. <br />
+      hostname: Returns hostname of a URL. <br />
+      origin: Returns protocol, hostname and portname of a URL. <br />
+      assign(): Loads new document. <br />
+      reload(): Reload current document. <br />
+      replace(): Replace current document.
+    </h4>
+    
+    <h2>History:-</h2>
+    <h4>
+      The window.history gives you information regarding the user's history. Due
+      to security concerns, we can't directly access which URL's our users have
+      visited, but we may find other parameters. <br />
+      <br />
+
+      length: Return the length of the user's history. <br />
+      back(), forward(): Move the user forward or back a page. <br />
+      go(): Loads specific URL from history list.
+    </h4>
+  </body>
+</html>
