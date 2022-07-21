@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+<!-- Function with Parameters: -->
+<!-- hello = (val) => "Hello " + val; -->
+
+<!-- In fact, if you have only one parameter, you can skip the parentheses as well: -->
+<!-- hello = val => "Hello " + val; -->
+
+<!-- Arrow function -->
+<!-- hello = () => {
+    return "Hello World!";
+  } -->
+
+  <!-- It gets shorter! If the function has only one statement, and the statement returns a value, you can remove the brackets and the return keyword: -->
+  <!-- hello = () => "Hello World!"; -->
+  <!-- Note: This works only if the function has only one statement. -->
+
+<h1>JavaScript "this"</h1>
+<h2>Arrow Functions Return Value by Default:</h2>
+<p>This program demonstrate that in Arrow Functions, the "this" keyword represents the object that owns the function, no matter who calls the function.</p>
+
+<p>Click the button to execute the "hello" function again, and you will see that "this" still  represents the window object.</p>
+<h3>In regular functions the "this" keyword represented the object that called the function, which could be the window, the document, a button or whatever.</h3>
+<h3>With arrow functions the "this" keyword always represents the object that defined the arrow function (owner of the function).</h3>
+<li><b>Remember these differences when you are working with functions. Sometimes the behavior of regular functions is what you want, if not, use arrow functions.</b> </li> <br> <br>
+<button id="btn">Click Me!</button>
+
+<p id="demo"></p>
+
+<script>
+var hello;
+
+//Arrow function
+hello = () => {
+  document.getElementById("demo").innerHTML += this;
+}
+
+//The window object calls the function:
+window.addEventListener("load", hello);
+
+//A button object calls the function:
+document.getElementById("btn").addEventListener("click", hello);
+
+// With Regular Function output on clicking the button is: [object HTMLButtonElement]
+</script>
+
+</body>
+</html>
