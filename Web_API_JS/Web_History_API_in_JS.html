@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+</head>
+<body>
+<h2>Web History API</h2>
+<h3>The Web History API provides easy methods to access the windows.history object.</h3>
+<h3>The window.history object contains the URLs (Web Sites) visited by the user.</h3>
+<h3>back()--	Loads the previous URL in the history list. <br>
+forward()--	Loads the next URL in the history list. <br>
+go()--	Loads a specific URL from the history list. 
+<br> <br>
+length properties--  Returns the number of URLs in the history list.
+</h3>
+<button onclick="Function()">Go Back</button> <br> <br>
+<button onclick="history.go(-2)">Go Back 2 Pages</button> <br> <br>
+<button onclick="history.forward()">Go Forward</button> <br> <br>
+<script>
+/* history.go(0)   reloads the page.
+history.go(-1)     is the same as history.back().
+history.go(1)      is the same as history.forward(). */ 
+
+//The back() method loads the previous URL in the windows.history list.
+    function Function() {
+        window.history.back();
+    }
+</script>
+</body>
+</html>
