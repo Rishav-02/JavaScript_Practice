@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>JavaScript Sets</h2>
+<h3>The values() method returns a new iterator object      containing all the values in a Set:</h3>
+<p>Iterating Set values:</p>
+
+<p id="demo"></p>
+
+<script>
+// Create a Set
+const letters = new Set(["a","b","c"]);
+
+// List all Elements
+//Now you can use the Iterator object to access the elements:
+let text = "";
+for (const x of letters.values()) {
+  text += x + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+</body>
+</html>

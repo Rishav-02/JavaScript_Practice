@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Functions</h2>
+<p>This example calls the fullName method of person, using it on person1:
+</p>
+<h4>With the call() method, you can write a method that can be used on different objects.</h4>
+<h4>call():-It can be used to invoke (call) a method with an owner object as an argument (parameter).</h4>
+<h4>In JavaScript all functions are object methods.If a function is not a method of a JavaScript object, it is a function of the global object.</h4>
+<h5>"this" is not a variable. It is a keyword. You cannot change the value of "this".</h5>
+<h3 id="demo"></h3>
+
+<script>
+//Create an object
+const person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + ", " + city + ", " + country;
+  }
+}
+
+const person1 = {
+  firstName:"Alok",
+  lastName: "Kumar"
+}
+
+const person2 = {
+  firstName:"Rishav",
+  lastName: "Raj"
+}
+//call() method with arguments i.e India,Norway.
+document.getElementById("demo").innerHTML = person.fullName.call(person2, "India", "Norway"); 
+</script>
+
+</body>
+</html>
+
+

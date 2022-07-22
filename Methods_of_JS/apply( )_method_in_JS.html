@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Functions</h2>
+<p>This example calls the fullName method of person, using it on person2:
+</p>
+<h3>The call() method takes arguments separately.</h3>
+<h3>The apply() method takes arguments as an array.</h3>
+<h4 id="demo"></h4>
+
+<script>
+const person = {
+fullName: function(city, country) {
+return this.firstName + " " + this.lastName + " live in " + city + " ," + country;
+  }
+}
+
+const person1 = {
+  firstName:"Rishav",
+  lastName: "Raj"
+}
+
+const person2 = {
+  firstName:"Peter",
+  lastName: "Parker"
+}
+
+document.getElementById("demo").innerHTML = person.fullName.apply(person2, ["Newyork", "US."]); 
+</script>
+
+</body>
+</html>
+
+

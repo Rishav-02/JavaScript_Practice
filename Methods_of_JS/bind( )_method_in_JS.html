@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Function bind()</h1>
+
+<p>This example creates 2 objects (person and member).</p>
+<p>The member object borrows the fullname method from person:</p> 
+<h3>With the bind() method, an object can borrow a method from another object.</h3>
+<h3>Sometimes the bind() method has to be used to prevent loosing "this". When a function is used as a callback, "this" is lost.The bind() method solves that problem of loosing.</h3>
+
+<h2 id="demo"></h2>
+
+<script>
+//object person
+const person = {
+  firstName:"John",
+  lastName: "Doe",
+  display: function() {
+    let x = document.getElementById("demo");
+    x.innerHTML = this.firstName + "-" + this.lastName;
+  }
+}
+
+const member = {
+  firstName:"Iron",
+  lastName: "Man",
+}
+
+let fullName = person.display.bind(member);
+setTimeout(fullName,3000);
+
+</script>
+
+</body>
+</html>
