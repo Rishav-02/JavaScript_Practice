@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Fetch API</h1>
+<h3>😀 No need for XMLHttpRequest anymore.</h3>
+<h3>The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network.</h3>
+<p id="fetch">Fetch a file to change this text.</p>
+
+<script>
+//Since fetch returns a Promise, we can also use async/await keywords to make requests:
+getText("fetch_info.txt");
+
+async function getText(file) {
+  let myObject = await fetch(file);
+  let myText = await myObject.text();
+  document.getElementById("fetch").innerHTML = myText;
+}
+</script>
+
+</body>
+</html>
