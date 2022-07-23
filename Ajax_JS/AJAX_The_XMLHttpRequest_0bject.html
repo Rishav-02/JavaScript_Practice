@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The XMLHttpRequest Object</h1>
+<h2>The XMLHttpRequest object is used to request data from a server.</h2>
+<h3>AJAX is a developer's dream, because you can: <br> <br>
+
+   <li> Read data from a web server - after the page has loaded </li> <br>
+   <li> Update a web page without reloading the page </li> <br>
+   <li>Send data to a web server - in the background </li>
+</h3>
+<p>AJAX allows web pages to be updated asynchronously by exchanging data with a web server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page.</p>
+<p>For security reasons, modern browsers do not allow access across domains. <br>
+This means that both the web page and the XML file it tries to load, must be located on the same server.</p>
+<h4>The default value for the async parameter is async = true and sync = false. <br> <br>
+    Server requests should be sent asynchronously. <br> <br>
+    By sending asynchronously, the JavaScript does not have to wait for the server response, but can instead: <br>
+
+<li>execute other scripts while waiting for server response </li> 
+<li>deal with the response after the response is ready </li>
+</h4>
+<h4>Synchronous XMLHttpRequest (async = false) is not recommended because the JavaScript will stop executing until the server response is ready. If the server is busy or slow, the application will hang or stop. <br> <br> Modern developer tools are encouraged to warn about using synchronous requests and may throw an InvalidAccessError exception when it occurs.</h4>
+
+<p id="ajax">Let AJAX change this text.</p>
+<button type="button" onclick="loadDoc()">Change Content</button>
+
+<script>
+function loadDoc() {
+//Create a new XMLHttpRequest Object
+  const xhttp = new XMLHttpRequest();//xhttp is variable
+
+//This is optional code
+// xhttp.onreadystatechange = function(){
+//   if(this.readyState == 4 && this.status ==200){
+//     document.getElementById("ajax").innerHTML = xhttp.responseText;
+//       }
+//   }       
+      
+  //Define a Callback Function 
+  //Define a function to be called when the request is received(loaded)
+  xhttp.onload = function(){
+  document.getElementById("ajax").innerHTML = xhttp.responseText;
+  }                
+//Specifies the request (method,url,async,user,psw)
+//third parameter in open() is false means Synchronous request and true means Asynchronous request
+  xhttp.open("GET", "ajax.txt",true);
+//send the request to the server Used for GET request
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<style>
+table,th,td {
+  border : 2px solid rgb(18, 235, 62);
+  border-collapse: collapse;
+}
+th,td {
+  padding: 6px;
+}
+</style>
+<body>
+
+<h1>The XMLHttpRequest Object</h1>
+<h3>AJAX can be used for interactive communication with an XML file.</h3>
+
+<button type="button" onclick="loadDoc()">Click to Get CD Collection</button>
+<br><br>
+<table id="request"></table>
+<p>Explanation:- <br>
+    When a user clicks on the "Get CD Collection" button above, the loadDoc() function is executed. <br> <br>
+
+    The loadDoc() function creates an XMLHttpRequest object, adds the function to be executed when the server response is ready, and sends the request off to the server. <br> <br>
+    
+    When the server response is ready, an HTML table is built, nodes (elements) are extracted from the XML file, and it finally updates the element "request" with the HTML table filled with XML data.
+</p>
+
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    myFunction(this);
+  }
+  xhttp.open("GET", "XML catalog.xml");
+  xhttp.send();
+}
+function myFunction(xml) {
+  const xmlDoc = xml.responseXML;
+  const x = xmlDoc.getElementsByTagName("CD");
+  let table="<tr><th>Artist</th><th>Title</th><th>Year</th><th>Price($)</th> </tr>";
+  for (let i = 0; i < x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue + "</td><td>" +
+    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue + "</td><td>" +
+    x[i].getElementsByTagName("YEAR")[0].childNodes[0].nodeValue + "</td><td>" +
+    x[i].getElementsByTagName("PRICE")[0].childNodes[0].nodeValue + "</td></tr>";
+  }
+  document.getElementById("request").innerHTML = table;
+}
+</script>
+
+</body>
+</html>

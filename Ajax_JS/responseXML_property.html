@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+<p id="res"></p>
+<h3>GET is simpler and faster than POST, and can be used in most cases. <br>
+
+    However, always use POST requests when: <br> <br>
+    
+<li>A cached file is not an option (update a file or database on the server).</li>
+<li>Sending a large amount of data to the server (POST has no size limitations). </li>
+<li>Sending user input (which can contain unknown characters), POST is more robust and secure than GET. </li>
+</h3>
+<h4>setRequestHeader(header,value) :- Adds HTTP headers to the request. <br>
+getAllResponseHeaders():- Returns header information <br>
+setRequestHeader():- Adds a label/value pair to the header to be sent <br> <br>
+onreadystatechange property:- Defines a function to be called when the readyState property changes. <br>
+readyState property:- Holds the status of the XMLHttpRequest.(value is 0,1,2,3,4)value-4:request finished and response is ready.
+responseText property:-Returns the response data as a string. <br>
+responseXML property:-Returns the response data as XML data. <br>
+status property:-Returns the status-number of a request <br>
+200: "OK" <br>
+403: "Forbidden" <br>
+404: "Not Found" <br>
+For a complete list go to the Http Messages Reference on w3school.com <br>
+statusText property:-Returns the status-text (e.g. "OK" or "Not Found")  <br> <br>
+When readyState is 4 and status is 200, the response is ready:
+</h4>
+ 
+<script>
+const xhttp = new XMLHttpRequest();
+xhttp.onload = function() {
+  const xmlDoc = this.responseXML;
+  const x = xmlDoc.getElementsByTagName("COMPANY");
+  let txt = "";
+  for (let i = 0; i < x.length; i++) {
+    txt = txt + x[i].childNodes[0].nodeValue + "<br>";
+    //childNodes[0] is the same as firstChild.
+  }
+  document.getElementById("res").innerHTML = txt;
+}
+xhttp.open("GET", "XML catalog.xml");
+xhttp.send();
+</script>
+
+</body>
+</html>
