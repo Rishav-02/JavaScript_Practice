@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async and Await</title>
+</head>
+<body>
+    <h1>Async and Await keyword</h1>
+    <h2>"async and await make promises easier to write"
+          <br>
+        "async" makes a function return a Promise.
+         <br>
+        "await" makes a function wait for a Promise.
+    </h2>
+    <br>
+    <h2>The await keyword can only be used inside an async function.</h2>
+
+    <h3>The two arguments (resolve and reject) are pre-defined by JavaScript.
+
+        We will not create them, but call one of them when the executor function is ready.
+        
+        Very often we will not need a reject function.</h3>
+    <script src="Async and Await.js"></script>
+    <br>
+
+<p> Program using Async and Await keyword </p>
+<p id="demo"></p>
+
+<script>
+
+async function getFile() {
+  let myPromise = new Promise(function(resolve) {
+    let req = new XMLHttpRequest();
+    req.open('GET', "mycar.html");
+    req.onload = function() {
+      if (req.status == 200) {
+        resolve(req.response);
+      } else {
+        resolve("File not Found");
+      }
+    };
+    req.send();
+  });
+  document.getElementById("demo").innerHTML = await myPromise;
+}
+
+getFile();
+</script>
+
+</body>
+</html>
