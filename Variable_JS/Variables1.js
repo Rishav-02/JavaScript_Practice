@@ -17,7 +17,7 @@ const firstName="Rishav";
 console.log(firstName);
 
 const arr2=[12,23,56,89,9];
-arr2.push(34);//push() element in array
+arr2.push(43);//push() element in array
 console.log(arr2);
 
 // let shares a lot of similarities with var, but unlike var, it has scope constraints. Its declaration and assignment are similar to var.The properties of let are that They have visibility linked to the block they belong with. We can change their values, but they cannot be redeclared in the same scope, unlike var."let" helps us by making it easier to see where variables live in our code and make our code cleaner and easier to read.
